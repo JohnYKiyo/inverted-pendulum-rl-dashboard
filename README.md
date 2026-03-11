@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inverted Pendulum RL Dashboard
 
-## Getting Started
+ブラウザ上で倒立振り子（Cart-Pole）を学習する、TensorFlow.jsベースの強化学習ダッシュボードです。  
+Next.js + TypeScript で構築され、物理シミュレーション・DQN学習・リアルタイム可視化を1つの画面に統合しています。
 
-First, run the development server:
+## Features
+
+- Cart-Pole 物理シミュレーション（Canvas描画）
+- DQN学習（Experience Replay + epsilon-greedy）
+- リアルタイム統計（Episode / Step / Reward / Epsilon / Loss）
+- 報酬推移チャート（Recharts）
+- 学習済みモデルの保存/読込（IndexedDB）
+
+## Tech Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- TensorFlow.js (`@tensorflow/tfjs`)
+- Recharts
+- Lucide React
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Controls
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `Start`: 学習を開始
+- `Stop`: 学習を一時停止
+- `Reset`: 学習状態を初期化
+- `Save`: 学習済みモデルを `indexeddb://pendulum-dqn-model` に保存
+- `Load`: 保存済みモデルを IndexedDB から読み込み
 
-## Learn More
+## Build / Lint
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
