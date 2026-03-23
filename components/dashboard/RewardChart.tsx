@@ -1,5 +1,6 @@
 "use client";
 
+import { type RewardPoint } from "@/lib/types";
 import {
   CartesianGrid,
   Line,
@@ -9,7 +10,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { type RewardPoint } from "@/lib/types";
 
 type RewardChartProps = {
   data: RewardPoint[];
